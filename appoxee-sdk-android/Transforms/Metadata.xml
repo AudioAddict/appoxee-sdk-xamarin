@@ -1,0 +1,44 @@
+﻿<metadata>
+  <attr path="/api/package[@name='com.appoxee']" name="managedName">Appoxee</attr>
+  <attr path="/api/package[@name='com.appoxee.activities']" name="managedName">Appoxee.Activities</attr>
+  <attr path="/api/package[@name='com.appoxee.api.alias']" name="managedName">Appoxee.Api.Alias</attr>
+  <attr path="/api/package[@name='com.appoxee.api.attributes']" name="managedName">Appoxee.Api.Attributes</attr>
+  <attr path="/api/package[@name='com.appoxee.api.tags']" name="managedName">Appoxee.Api.Tags</attr>
+  <attr path="/api/package[@name='com.appoxee.asyncs']" name="managedName">Appoxee.Asyncs</attr>
+  <attr path="/api/package[@name='com.appoxee.connection']" name="managedName">Appoxee.Connection</attr>
+  <attr path="/api/package[@name='com.appoxee.example']" name="managedName">Appoxee.Example</attr>
+  <attr path="/api/package[@name='com.appoxee.exceptions']" name="managedName">Appoxee.Exceptions</attr>
+  <attr path="/api/package[@name='com.appoxee.gcm']" name="managedName">Appoxee.Gcm</attr>
+  <attr path="/api/package[@name='com.appoxee.inbox']" name="managedName">Appoxee.Inbox</attr>
+  <attr path="/api/package[@name='com.appoxee.listeners']" name="managedName">Appoxee.Listeners</attr>
+  <attr path="/api/package[@name='com.appoxee.push.actions']" name="managedName">Appoxee.Push.Actions</attr>
+  <attr path="/api/package[@name='com.appoxee.push.notificationbuilder']" name="managedName">Appoxee.Push.NotificationBuilder</attr>
+  <attr path="/api/package[@name='com.appoxee.push.notificationqueue']" name="managedName">Appoxee.Push.NotificationQueue</attr>
+  <attr path="/api/package[@name='com.appoxee.utils']" name="managedName">Appoxee.Utils</attr>
+  <attr path="/api/package[@name='com.appoxee.utils.resources']" name="managedName">Appoxee.Utils.Resources</attr>
+  <attr path="/api/package[@name='com.appoxee.widgets']" name="managedName">Appoxee.Widgets</attr>
+
+  <!-- nuke the async tasks from orbit, we'll use Task.Run() here in C# land -->
+  <remove-node path="/api/package[@name='com.appoxee.inbox']/class[@name='SimpleCursorLoader']" />
+  <remove-node path="/api/package[starts-with(@name, 'com.appoxee.asyncs')]" />
+  <remove-node path="/api/package[@name='com.appoxee.utils']" />
+
+  <remove-node path="/api/package[@name='com.appoxee.inbox']/class[@name='Delete']" />
+  <remove-node path="/api/package[@name='com.appoxee.inbox']/class[@name='Update']" />
+  <remove-node path="/api/package[@name='com.appoxee']/class[@name='AddTagToDevice.AddTagsAsync']" />
+  <remove-node path="/api/package[@name='com.appoxee']/class[@name='RemoveTagFromDevice.RemoveTagAsync']" />
+  <remove-node path="/api/package[@name='com.appoxee.activities']/class[starts-with(@name, 'AppoxeeExampleActivity')]" />
+
+  <!-- fix a generic erasure -->
+  <attr path="/api/package[@name='com.appoxee.activities']/class[@name='Inbox']/method[@name='onLoadFinished']/parameter[@name='p1']" name="type">Java.Lang.Object</attr>
+
+  <!-- Fix isXX methods that don't cleanly convert to properties -->
+  <attr path="/api/package[@name='com.appoxee']/class[@name='AppoxeeManager']/method[@name='isPushEnabled']" name="propertyName" />
+  <attr path="/api/package[@name='com.appoxee']/class[@name='AppoxeeManager']/method[@name='isPushEnabled_V3']" name="propertyName" />
+
+  <attr path="/api/package[@name='com.appoxee']/class[@name='AppoxeeManager']/method[@name='isSoundEnabled']" name="propertyName" />
+  <attr path="/api/package[@name='com.appoxee']/class[@name='AppoxeeManager']/method[@name='isSoundEnabled_V3']" name="propertyName" />
+
+  <attr path="/api/package[@name='com.appoxee']/class[@name='AppoxeeManager']/method[@name='isVibrateEnabled']" name="propertyName" />
+  <attr path="/api/package[@name='com.appoxee']/class[@name='AppoxeeManager']/method[@name='isVibrateEnabled_V3']" name="propertyName" />
+</metadata>

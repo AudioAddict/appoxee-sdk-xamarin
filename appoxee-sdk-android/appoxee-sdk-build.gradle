@@ -1,0 +1,49 @@
+// this gradle file can be used to turn the Appoxee SDK into a more readily usable .aar package
+// 1. move all the jar files from the libs folder of the Appoxee SDK to the Jars section of this project.
+      they should be set as embeddedreferencejars (except for support-v4 & gcm, set those as reference jars if
+      you are using google play services & support as components or nuget packages instead)
+// 2. edit local.properites with the sdk.dir of your android SDK
+// 3. copy this file into the Appoxee SDK distribution as build.gradle
+// 4. gradle assemble
+// 5. copy the updated release AAR file from the build/outputs/aar folder to the Jars section of this project
+
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+
+  dependencies {
+    classpath 'com.android.tools.build:gradle:1.2.0'
+  }
+}
+
+apply plugin: 'android-library'
+
+dependencies {
+    compile fileTree(dir: 'libs', include: '*.jar')
+}
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.1.2"
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = []
+            resources.srcDirs = []
+            aidl.srcDirs = []
+            renderscript.srcDirs = []
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+        }
+
+        // Move the tests to tests/java, tests/res, etc...
+        instrumentTest.setRoot('tests')
+    }
+}
