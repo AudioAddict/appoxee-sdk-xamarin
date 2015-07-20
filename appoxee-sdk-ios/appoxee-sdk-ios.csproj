@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{8FFB629D-F513-41CE-95D2-7ECE97B6EEEC};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{8491F4EA-FBAE-4856-AB16-75082D1A97DB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>appoxeesdkios</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>AppoxeeSDK</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+    <Folder Include="Resources\AppoxeeResources.bundle\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="libAppoxee_ios_32bit_64bit_sdk_v3.2.5.linkwith.cs">
+      <DependentUpon>libAppoxee_ios_32bit_64bit_sdk_v3.2.5.a</DependentUpon>
+    </Compile>
+    <Compile Include="AWSRuntime.linkwith.cs">
+      <DependentUpon>AWSRuntime.a</DependentUpon>
+    </Compile>
+    <Compile Include="AWSSQS.linkwith.cs">
+      <DependentUpon>AWSSQS.a</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
+  <ItemGroup>
+    <ObjcBindingNativeLibrary Include="libAppoxee_ios_32bit_64bit_sdk_v3.2.5.a" />
+    <ObjcBindingNativeLibrary Include="AWSRuntime.a" />
+    <ObjcBindingNativeLibrary Include="AWSSQS.a" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\AppoxeeSound.wav" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Colors\colors.strings" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Fonts\fonts.strings" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\AppoxeeCloseButton.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\AppoxeeCloseButton%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\AppoxeeLoadingBackground.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\AppoxeeLoadingBackground%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\AppoxeeRead.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\AppoxeeRead%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\AppoxeeRefreshButton.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\AppoxeeUnread.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\AppoxeeUnread%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\Seperator.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\Seperator%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\apps_icon.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\apps_icon%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\apps_icon_selected.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\apps_icon_selected%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\apps_icon_small_grey.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\apps_icon_small_grey%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\apps_icon_small_white.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\apps_icon_small_white%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\apps_icon_small_white_selected.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\apps_icon_small_white_selected%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\close_icon.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\close_icon%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\envelope_icon.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\envelope_icon%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\envelope_icon_selected.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\envelope_icon_selected%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\scroll_background.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\scroll_background%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\star_icon.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\star_icon%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\star_icon_selected.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\star_icon_selected%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\star_icon_small_grey.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\star_icon_small_grey%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\star_icon_small_white.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\star_icon_small_white%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\star_icon_small_white_selected.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\Common\star_icon_small_white_selected%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPad\arrow.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPad\arrow%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPad\arrow_gradient.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPad\arrow_gradient%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPad\bottom_bar_landscape.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPad\bottom_bar_landscape%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPad\bottom_bar_portrait.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPad\bottom_bar_portrait%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPad\no_connection.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPad\no_connection%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPad\no_connection_with_text.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPad\no_connection_with_text%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPad\no_messages_iPad.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPad\no_messages_iPad%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPad\no_messages_icon_iPad.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPad\no_messages_icon_iPad%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPad\powered_by_logo_icon.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPad\powered_by_logo_icon%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPad\top_bar_landscape.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPad\top_bar_landscape%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPad\top_bar_portrait.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPad\top_bar_portrait%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPad\Landscape\AppoxeeListCellBack.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPad\Landscape\AppoxeeListCellBack%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPad\Landscape\AppoxeeListCellBackRTL.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPad\Landscape\AppoxeeListCellBackRTL%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPad\Portrait\AppoxeeListCellBack.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPad\Portrait\AppoxeeListCellBack%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPad\Portrait\AppoxeeListCellBackRTL.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPad\Portrait\AppoxeeListCellBackRTL%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPhone\bottom_bar_landscape.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPhone\bottom_bar_landscape%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPhone\bottom_bar_portrait.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPhone\bottom_bar_portrait%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPhone\bottom_bar_shadow.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPhone\bottom_bar_shadow%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPhone\close_message.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPhone\close_message%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPhone\no_connection_iPhone.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPhone\no_connection_iPhone%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPhone\no_connection_with_text_iPhone.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPhone\no_connection_with_text_iPhone%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPhone\no_messages_iPhone.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPhone\no_messages_iPhone%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPhone\no_messages_icon_iPhone.png.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPhone\no_messages_icon_iPhone.png%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPhone\powered_by_logo_icon.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPhone\powered_by_logo_icon%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPhone\top_bar_landscape.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPhone\top_bar_landscape%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPhone\top_bar_portrait.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPhone\top_bar_portrait%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPhone\Landscape\AppoxeeListCellBack.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPhone\Landscape\AppoxeeListCellBack%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPhone\Landscape\AppoxeeListCellBackRTL.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPhone\Landscape\AppoxeeListCellBackRTL%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPhone\Portrait\AppoxeeListCellBack.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPhone\Portrait\AppoxeeListCellBack%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPhone\Portrait\AppoxeeListCellBackRTL.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Images\iPhone\Portrait\AppoxeeListCellBackRTL%402x.png" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Strings\en.txt" />
+    <BundleResource Include="Resources\AppoxeeResources.bundle\Strings\he.txt" />
+  </ItemGroup>
+</Project>
