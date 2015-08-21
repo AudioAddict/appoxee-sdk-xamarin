@@ -1,7 +1,7 @@
 // this gradle file can be used to turn the Appoxee SDK into a more readily usable .aar package
 // 1. move all the jar files from the libs folder of the Appoxee SDK to the Jars section of this project.
-      they should be set as embeddedreferencejars (except for support-v4 & gcm, set those as reference jars if
-      you are using google play services & support as components or nuget packages instead)
+//    they should be set as embeddedreferencejars (except for support-v4 & gcm, set those as reference jars if
+//    you are using google play services & support as components or nuget packages instead)
 // 2. edit local.properites with the sdk.dir of your android SDK
 // 3. copy this file into the Appoxee SDK distribution as build.gradle
 // 4. gradle assemble
