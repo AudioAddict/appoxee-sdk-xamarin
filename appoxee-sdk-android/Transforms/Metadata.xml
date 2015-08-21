@@ -20,6 +20,7 @@
 
   <!-- nuke the async tasks from orbit, we'll use Task.Run() here in C# land -->
   <remove-node path="/api/package[@name='com.appoxee.inbox']/class[@name='SimpleCursorLoader']" />
+<!--  <remove-node path="/api/package[starts-with(@name, 'com.appoxee.asyncs')]/class[not(starts-with(@name, 'initAsync'))]" /> -->
   <remove-node path="/api/package[starts-with(@name, 'com.appoxee.asyncs')]" />
   <remove-node path="/api/package[@name='com.appoxee.utils']" />
 
