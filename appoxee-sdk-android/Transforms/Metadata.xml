@@ -9,6 +9,8 @@
   <attr path="/api/package[@name='com.appoxee.example']" name="managedName">Appoxee.Example</attr>
   <attr path="/api/package[@name='com.appoxee.exceptions']" name="managedName">Appoxee.Exceptions</attr>
   <attr path="/api/package[@name='com.appoxee.gcm']" name="managedName">Appoxee.Gcm</attr>
+  <attr path="/api/package[@name='com.appoxee.geo']" name="managedName">Appoxee.Geo</attr>
+  <attr path="/api/package[@name='com.appoxee.geo.manager']" name="managedName">Appoxee.Geo.Manager</attr>
   <attr path="/api/package[@name='com.appoxee.inbox']" name="managedName">Appoxee.Inbox</attr>
   <attr path="/api/package[@name='com.appoxee.listeners']" name="managedName">Appoxee.Listeners</attr>
   <attr path="/api/package[@name='com.appoxee.push.actions']" name="managedName">Appoxee.Push.Actions</attr>
@@ -30,8 +32,9 @@
   <remove-node path="/api/package[@name='com.appoxee']/class[@name='RemoveTagFromDevice.RemoveTagAsync']" />
   <remove-node path="/api/package[@name='com.appoxee.activities']/class[starts-with(@name, 'AppoxeeExampleActivity')]" />
 
-  <!-- fix a generic erasure -->
+  <!-- fix generic erasures -->
   <attr path="/api/package[@name='com.appoxee.activities']/class[@name='Inbox']/method[@name='onLoadFinished']/parameter[@name='p1']" name="type">Java.Lang.Object</attr>
+  <attr path="/api/package[@name='com.appoxee.geo.manager']/class[@name='AppoxeeGeofencingManager']/method[@name='onResult' and count(parameter)=1 and parameter[1][@type='com.google.android.gms.common.api.Status']]/parameter[@name='p0']" name="type">Java.Lang.Object</attr>
 
   <!-- Fix isXX methods that don't cleanly convert to properties -->
   <attr path="/api/package[@name='com.appoxee']/class[@name='AppoxeeManager']/method[@name='isPushEnabled']" name="propertyName" />
