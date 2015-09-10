@@ -40,8 +40,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="libAppoxee_ios_32bit_64bit_sdk_v3.2.5.linkwith.cs">
-      <DependentUpon>libAppoxee_ios_32bit_64bit_sdk_v3.2.5.a</DependentUpon>
+    <Compile Include="libAppoxee_ios_32bit_64bit_sdk.linkwith.cs">
+      <DependentUpon>libAppoxee_ios_32bit_64bit_sdk.a</DependentUpon>
     </Compile>
     <Compile Include="AWSRuntime.linkwith.cs">
       <DependentUpon>AWSRuntime.a</DependentUpon>
@@ -58,7 +58,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
   <ItemGroup>
-    <ObjcBindingNativeLibrary Include="libAppoxee_ios_32bit_64bit_sdk_v3.2.5.a" />
+    <ObjcBindingNativeLibrary Include="libAppoxee_ios_32bit_64bit_sdk.a" />
     <ObjcBindingNativeLibrary Include="AWSRuntime.a" />
     <ObjcBindingNativeLibrary Include="AWSSQS.a" />
   </ItemGroup>
