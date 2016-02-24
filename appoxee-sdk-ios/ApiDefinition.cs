@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using CoreGraphics;
 using Foundation;
 using ObjCRuntime;
@@ -430,30 +430,31 @@ namespace Appoxee
         void DisableFeedbackAndMoreApps (bool shouldDisable);
     }
 
+    [Static]
     partial interface Constants
     {
         // extern NSString *const AppoxeeManagerModalParam;
-        [Field ("AppoxeeManagerModalParam")]
+        [Field ("AppoxeeManagerModalParam", "__Internal")]
         NSString AppoxeeManagerModalParam { get; }
 
         // extern NSString *const AppoxeeManagerViewHeightParam;
-        [Field ("AppoxeeManagerViewHeightParam")]
+        [Field ("AppoxeeManagerViewHeightParam", "__Internal")]
         NSString AppoxeeManagerViewHeightParam { get; }
 
         // extern NSString *const AppoxeeManagerNewMailSoundFileName;
-        [Field ("AppoxeeManagerNewMailSoundFileName")]
+        [Field ("AppoxeeManagerNewMailSoundFileName", "__Internal")]
         NSString AppoxeeManagerNewMailSoundFileName { get; }
 
         // extern NSString *const AppoxeeManagerViewAnimationTypeParam;
-        [Field ("AppoxeeManagerViewAnimationTypeParam")]
+        [Field ("AppoxeeManagerViewAnimationTypeParam", "__Internal")]
         NSString AppoxeeManagerViewAnimationTypeParam { get; }
 
         // extern NSString *const AppoxeeManagerViewAnimationTypeParam_PageCurl;
-        [Field ("AppoxeeManagerViewAnimationTypeParam_PageCurl")]
+        [Field ("AppoxeeManagerViewAnimationTypeParam_PageCurl", "__Internal")]
         NSString AppoxeeManagerViewAnimationTypeParam_PageCurl { get; }
 
         // extern NSString *const AppoxeeManagerViewAnimationTypeParam_VerticalMove;
-        [Field ("AppoxeeManagerViewAnimationTypeParam_VerticalMove")]
+        [Field ("AppoxeeManagerViewAnimationTypeParam_VerticalMove", "__Internal")]
         NSString AppoxeeManagerViewAnimationTypeParam_VerticalMove { get; }
     }
 
