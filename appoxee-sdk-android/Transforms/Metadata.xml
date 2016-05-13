@@ -8,9 +8,11 @@
   <attr path="/api/package[@name='com.appoxee.connection']" name="managedName">Appoxee.Connection</attr>
   <attr path="/api/package[@name='com.appoxee.exceptions']" name="managedName">Appoxee.Exceptions</attr>
   <attr path="/api/package[@name='com.appoxee.gcm']" name="managedName">Appoxee.Gcm</attr>
+  <attr path="/api/package[@name='com.appoxee.geo']" name="managedName">Appoxee.Geo</attr>
   <attr path="/api/package[@name='com.appoxee.geo.model']" name="managedName">Appoxee.Geo.Model</attr>
   <attr path="/api/package[@name='com.appoxee.inbox']" name="managedName">Appoxee.Inbox</attr>
   <attr path="/api/package[@name='com.appoxee.listeners']" name="managedName">Appoxee.Listeners</attr>
+  <attr path="/api/package[@name='com.appoxee.push']" name="managedName">Appoxee.Push</attr>
   <attr path="/api/package[@name='com.appoxee.push.actions']" name="managedName">Appoxee.Push.Actions</attr>
   <attr path="/api/package[@name='com.appoxee.push.notificationbuilder']" name="managedName">Appoxee.Push.NotificationBuilder</attr>
   <attr path="/api/package[@name='com.appoxee.push.notificationqueue']" name="managedName">Appoxee.Push.NotificationQueue</attr>
@@ -18,14 +20,19 @@
   <attr path="/api/package[@name='com.appoxee.widgets']" name="managedName">Appoxee.Widgets</attr>
 
   <!-- nuke the async tasks from orbit, we'll use Task.Run() here in C# land -->
-  <remove-node path="/api/package[@name='com.appoxee.inbox']/class[@name='SimpleCursorLoader']" />
-<!--  <remove-node path="/api/package[starts-with(@name, 'com.appoxee.asyncs')]/class[not(starts-with(@name, 'initAsync'))]" /> -->
   <remove-node path="/api/package[starts-with(@name, 'com.appoxee.asyncs')]" />
-  <remove-node path="/api/package[@name='com.appoxee.utils']" />
 
+  <!--- other things that are basically useless and don't bind well -->
+  <remove-node path="/api/package[@name='com.appoxee.utils']" />
   <remove-node path="/api/package[@name='com.appoxee.inbox']/class[@name='Delete']" />
   <remove-node path="/api/package[@name='com.appoxee.inbox']/class[@name='Update']" />
   <remove-node path="/api/package[@name='com.appoxee.activities']/class[starts-with(@name, 'AppoxeeExampleActivity')]" />
+  <remove-node path="/api/package[@name='com.appoxee.activities']/class[@name='Inbox.InboxCursorLoader']" />
+
+  <remove-node path="/api/package[@name='com.appoxee.inbox']/class[@name='SimpleCursorLoader']" />
+  <remove-node path="/api/package[@name='com.appoxee.inbox']/class[@name='DatabaseHelper']" />
+  <remove-node path="/api/package[@name='com.appoxee']/class[@name='AppoxeeManager']/method[@name='getHelper']" />
+  <remove-node path="/api/package[@name='com.appoxee.geo']/class[@name='AppoxeeGeofencingManager']" />
 
   <!-- fix generic erasures -->
   <attr path="/api/package[@name='com.appoxee.activities']/class[@name='Inbox']/method[@name='onLoadFinished']/parameter[@name='p1']" name="type">Java.Lang.Object</attr>
@@ -40,4 +47,18 @@
 
   <attr path="/api/package[@name='com.appoxee']/class[@name='AppoxeeManager']/method[@name='isVibrateEnabled']" name="propertyName" />
   <attr path="/api/package[@name='com.appoxee']/class[@name='AppoxeeManager']/method[@name='isVibrateEnabled_V3']" name="propertyName" />
+
+  <!--- fix public fields that don't need to be -->
+  <remove-node path="/api/package[@name='com.appoxee.geo.model']/class[@name='Region']/field[@name='ID']" />
+  <remove-node path="/api/package[@name='com.appoxee.geo.model']/class[@name='Region']/field[@name='LAT']" />
+  <remove-node path="/api/package[@name='com.appoxee.geo.model']/class[@name='Region']/field[@name='LON']" />
+  <remove-node path="/api/package[@name='com.appoxee.geo.model']/class[@name='Region']/field[@name='NAME']" />
+  <remove-node path="/api/package[@name='com.appoxee.geo.model']/class[@name='Region']/field[@name='RADIUS']" />
+  <remove-node path="/api/package[@name='com.appoxee']/class[@name='Configuration']/field[@name='pushOpenActivity']" />
+  <remove-node path="/api/package[@name='com.appoxee']/class[@name='AppoxeeManager']/field[@name='sdkObserver']" />
+  <remove-node path="/api/package[@name='com.appoxee']/class[@name='Configuration']/field[@name='AppInboxMessageTimeout']" />
+
+  <!-- IntentServices need magic -->
+  <attr path="/api/package[@name='com.appoxee.geo']/class[@extends='android.app.IntentService']" name="extends">mono.android.app.IntentService</attr>
+  <attr path="/api/package[@name='com.appoxee.push']/class[@extends='android.app.IntentService']" name="extends">mono.android.app.IntentService</attr>
 </metadata>
