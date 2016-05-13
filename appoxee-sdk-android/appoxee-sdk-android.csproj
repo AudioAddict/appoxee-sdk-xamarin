@@ -96,6 +96,11 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
   <ItemGroup>
     <ReferenceJar Include="Jars\org.apache.http.legacy.jar" />
+  </ItemGroup>
+  <ItemGroup>
+    <LibraryProjectZip Include="Jars\appoxee_sdk_2.8.0.aar" />
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedReferenceJar Include="Jars\ormlite-android-4.48.jar" />
     <EmbeddedReferenceJar Include="Jars\ormlite-core-4.48.jar" />
   </ItemGroup>
@@ -106,10 +111,4 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.23.2.1\build\Xamarin.Android.Support.Vector.Drawable.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Support.Vector.Drawable.23.2.1\build\Xamarin.Android.Support.Vector.Drawable.targets'))" />
   </Target>
-  <ItemGroup>
-    <LibraryProjectZip Include="Jars\appoxee_sdk_2.7.2.zip" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedJar Include="Jars\appoxee-sdk.jar" />
-  </ItemGroup>
 </Project>
